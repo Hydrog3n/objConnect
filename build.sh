@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECTPATH=`pwd`
-BUILDROOTDIR="../buildroot/"
+BUILDROOTDIR="../buildroot"
 if [ ! -d $BUILDROOTDIR ]; then 
 	git clone git://git.buildroot.net/buildroot ../buildroot
 	make beaglebone_defconfig
@@ -10,15 +10,8 @@ fi
 
 echo $BUILDROOTDIR
 
-## Build client udp
-CLIUDPDIR="./src/cliudp"
-cd $CLIUDPDIR
-make
-#cp $CLIUDPDIR/udp $BUILDROOTDIR/output/
-make clean
-cd $PROJECTPATH
-
-
+## Copy all packages in build root
+cp -r package/* $BUILDROOTDIR/package
 
 ## Prepare buildroot config and target
 cp ./config/.config $BUILDROOTDIR
