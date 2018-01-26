@@ -3,6 +3,7 @@
 PROJECTPATH=pwd
 if [ ! -d "../buildroot" ]; then 
 	git clone git://git.buildroot.net/buildroot ../buildroot
+	make beaglebone_defconfig
 	make
 fi
 
