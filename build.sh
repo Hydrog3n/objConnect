@@ -10,14 +10,9 @@ if [ ! -d $BUILDROOTDIR ]; then
 	git pull origin 2017.11.x
 	make beaglebone_defconfig
 	make
-else
-	echo "Update buildroot"
-	cd $BUILDROOTDIR
-	git checkout 2017.11.x
-	git pull origin 2017.11.x
+	cd $PROJECTPATH
 fi
 
-cd $PROJECTPATH
 
 ## Copy all packages in build root
 echo "Copy packages"
