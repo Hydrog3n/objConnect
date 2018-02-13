@@ -1,0 +1,17 @@
+measure : main.o BNO055.o I2C.o
+	$(CC) -o '$@' '$<'
+
+main.o : main.c BNO055.h I2C.h
+	$(CC) -c '$@' '$<'
+
+BNO055.o : BNO055.c BNO055.h
+	$(CC) -c '$@' '$<'
+
+I2C.o : I2C.c I2C.h
+	$(CC) -c '$@' '$<'
+
+clean :
+	rm -f *.o measure
+
+install:
+	cp measure $(DESTDIR)/bin/measure

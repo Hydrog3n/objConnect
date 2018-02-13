@@ -1,0 +1,4 @@
+config BR2_PACKAGE_MEASURE
+	bool "measure" 
+	help
+		Lecteur pour le capteur Adafruit

@@ -5,7 +5,7 @@ iface lo inet loopback
 
 #default 
 auto eth0
-iface eth0 inet static
- address 10.0.1.12
- netmask 255.255.255.0
-
+iface eth0 inet dhcp
+#  address 10.0.1.12
+#  netmask 255.255.255.0
+#  gateway 10.0.1.4
